@@ -1,5 +1,6 @@
 import * as THREE from "three";
 
+import React from "react";
 import { useEffect, useRef } from "react";
 
 function MyThree() {
