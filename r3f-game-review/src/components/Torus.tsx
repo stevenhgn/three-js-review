@@ -30,7 +30,7 @@ const Torus = ({
     if (!ref || !ref.current) {
       return;
     }
-    // ref.current.rotation.x += delta;
+    // // ref.current.rotation.x += delta;
     ref.current.rotation.y += delta;
     // ref.current.position.z = Math.sin(state.clock.elapsedTime) * 2;
   });
