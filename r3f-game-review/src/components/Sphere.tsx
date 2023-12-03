@@ -62,7 +62,7 @@ const Sphere = ({
       onPointerLeave={onPointerLeave}
     >
       <sphereGeometry args={args} />
-      <meshMatcapMaterial color={isHovered ? "red" : color} />
+      <meshStandardMaterial color={isHovered ? "red" : color} />
     </mesh>
   );
 };

@@ -1,10 +1,11 @@
 import { Canvas } from "@react-three/fiber";
-import { DirectionalLight } from "three";
-import { OrbitControls } from "@react-three/drei";
+import { DirectionalLight, DirectionalLightHelper } from "three";
+import { OrbitControls, useHelper } from "@react-three/drei";
 import "./App.css";
 import Sphere from "./components/Sphere";
 import Cube from "./components/Cube";
 import { useRef } from "react";
+import { useControls } from "leva";
 const TopBar = () => {
   return (
     <>
@@ -21,12 +22,20 @@ const TopBar = () => {
 };
 
 const Scene = () => {
-  const directionalLightRef = useRef<DirectionalLight>(null);
+  const directionalLightRef = useRef(new DirectionalLight());
+
+  const { lightColor, lightIntensity } = useControls({
+    lightColor: "white",
+    lightIntensity: { value: 0.5, min: 0, max: 5 },
+  });
+  useHelper(directionalLightRef, DirectionalLightHelper, 0.5, "white");
+
   return (
     <>
       <directionalLight
-        position={[0, 0, 2]}
-        intensity={0.5}
+        position={[0, 2, 5]}
+        intensity={lightIntensity}
+        color={lightColor}
         ref={directionalLightRef}
       />
       <ambientLight intensity={0.1} />
@@ -44,7 +53,7 @@ const Scene = () => {
         color="hotpink"
         // shouldAnimate
       />
-      <OrbitControls maxZoom={2} />
+      <OrbitControls />
     </>
   );
 };

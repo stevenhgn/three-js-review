@@ -57,7 +57,7 @@ const Cube = ({ position, size, color, shouldAnimate = false }: CubeProps) => {
       onPointerLeave={onPointerLeave}
     >
       <boxGeometry args={size} />
-      <meshMatcapMaterial color={isHovered ? "lightblue" : color} />
+      <meshStandardMaterial color={isHovered ? "lightblue" : color} />
     </mesh>
   );
 };
