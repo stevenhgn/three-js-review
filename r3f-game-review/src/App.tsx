@@ -41,18 +41,8 @@ const Scene = () => {
       <ambientLight intensity={0.1} />
 
       <TopBar />
-      <Cube
-        position={[0, 0, 0]}
-        size={[4, 0.5, 4]}
-        color="lightgreen"
-        // shouldAnimate
-      />
-      <Sphere
-        position={[0, 1.5, 0]}
-        args={[1, 30, 30]}
-        color="hotpink"
-        // shouldAnimate
-      />
+      <Cube position={[0, 0, 0]} size={[4, 0.5, 4]} color="lightgreen" />
+      <Sphere position={[0, 1.5, 0]} args={[1, 30, 30]} color="hotpink" />
       <OrbitControls />
     </>
   );
