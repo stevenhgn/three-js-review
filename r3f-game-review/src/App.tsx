@@ -1,5 +1,3 @@
-import { useEffect, useRef } from "react";
-import { Mesh } from "three";
 import { Canvas } from "@react-three/fiber";
 
 import "./App.css";
@@ -7,12 +5,6 @@ import Cube from "./components/Cube";
 import Sphere from "./components/Sphere";
 import Torus from "./components/Torus";
 const TopBar = () => {
-  const meshRef = useRef<Mesh>(null!);
-
-  useEffect(() => {
-    console.log(Boolean(meshRef.current));
-  }, []);
-
   return (
     <>
       <group position={[-3, 3, 0]}>
