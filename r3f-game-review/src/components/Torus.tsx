@@ -23,7 +23,7 @@ const Torus = ({
   shouldAnimate = false,
 }: TorusProps) => {
   const ref = useRef<Mesh>(null);
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (!shouldAnimate) {
       return;
     }
@@ -36,7 +36,7 @@ const Torus = ({
   });
   return (
     <mesh position={position} ref={ref}>
-      <torusGeometry args={args} />
+      <torusKnotGeometry args={args} />
       <meshStandardMaterial color={color} />
     </mesh>
   );

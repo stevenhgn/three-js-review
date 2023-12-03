@@ -27,7 +27,7 @@ const Sphere = ({
 }: SphereProps) => {
   const ref = useRef<Mesh>(null);
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     if (!shouldAnimate) {
       return;
     }
@@ -36,8 +36,8 @@ const Sphere = ({
     }
     const speed = isHovered ? 0.5 : 0.2;
     ref.current.rotation.y += delta * speed;
-    // ref.current.rotation.y += delta;
-    // ref.current.position.z = Math.sin(state.clock.elapsedTime) * 2;
+    ref.current.rotation.y += delta;
+    ref.current.position.z = Math.sin(state.clock.elapsedTime) * 2;
   });
   const onPointerEnter = useCallback(
     (event: ThreeEvent<PointerEvent>) => {
